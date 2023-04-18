@@ -10,7 +10,7 @@
 | Надя  | Frontend  |
 | Саша  | Frontend  |
 | Юлдаш  | Frontend  |
-| Гена  | Frontend  |
+| Генна  | Frontend  |
 | Лера  | Frontend  |
 | Данил  | Backend  |
 | Володя  | Backend  |
@@ -22,6 +22,8 @@
 | Вадим  | Unemployed  |
 | Даша  | Unemployed  |
 | Алена  | Unemployed  |
+| Alex  | Unemployed  |
+| Ира  | Unemployed  |
 
 Дизайн сайта: https://www.figma.com/file/NJVOiHCoeSbqa17b0leegB/MONOPOLY?node-id=0%3A1&t=uHIAWs4VGFH0RVhg-1
 Основные функции монополии(еще будет расширяться):
