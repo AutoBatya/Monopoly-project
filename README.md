@@ -27,6 +27,7 @@
 
 Дизайн сайта: https://www.figma.com/file/NJVOiHCoeSbqa17b0leegB/MONOPOLY?node-id=0%3A1&t=uHIAWs4VGFH0RVhg-1
 Схема взаимодействия экранов - https://www.figma.com/file/c5sMST73hOa9AGCMSJr1Wr/MONOPOLY?type=whiteboard&node-id=0-1&t=EXhf2PJx9VIxQJUk-0
+
 Основные функции монополии(еще будет расширяться):
 Страница входа
 1) Создать комнату (до 5 (опционально) игроков)
