@@ -5,5 +5,6 @@ class RoomSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     name = serializers.CharField(max_length=50)
     max_players = serializers.IntegerField(default=4)
+    current_players = serializers.IntegerField()
     starting_balance = serializers.IntegerField(default=0)
     creation_datetime = serializers.DateTimeField()
