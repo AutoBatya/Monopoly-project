@@ -20,3 +20,16 @@ class GetAllRooms(APIView):
             many=True
         )
         return Response(serializer.data)
+
+
+class GetRoomById(APIView):
+    def get(self, request, id):
+        queryset = Room.objects.filter(id=id)
+        if queryset.count() == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = RoomSerializer(
+            instance=queryset[0],
+            many=False
+        )
+        return Response(serializer.data)
