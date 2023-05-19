@@ -22,7 +22,7 @@
 | Даша  | B  | 6 + 17 |
 | Алена  | F  | 26 |
 | Ира  | Unemployed  | - |
-| Даурен  | Unemployed  | - |
+| Даурен  | B  | 21 |
 
 ## Дизайн сайта
 https://www.figma.com/file/NJVOiHCoeSbqa17b0leegB/MONOPOLY?node-id=0%3A1&t=uHIAWs4VGFH0RVhg-1
