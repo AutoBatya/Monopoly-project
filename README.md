@@ -2,28 +2,27 @@
 Монополия онлайн
 
 Участники и их роли:
-| Имя - name  | Роль |
-| ------------- | ------------- |
-| Дамир  | Teamlead   |
-| Оля  | Разработка интерфейса UX/UI  |
-| Дима  | Предводитель Frontenderov  |
-| Надя  | Frontend  |
-| Саша  | Frontend  |
-| Юлдаш  | Frontend  |
-| Генна  | Frontend  |
-| Лера  | Frontend  |
-| Данил  | Backend  |
-| Володя  | Backend  |
-| Макар  | Backend  |
-| Инна  | Backend  |
-| Марат  | Backend  |
-| Диана  | Database  |
-| Олег  | Unemployed  |
-| Вадим  | Unemployed  |
-| Даша  | Unemployed  |
-| Алена  | Unemployed  |
-| Alex  | Unemployed  |
-| Ира  | Unemployed  |
+| Имя - name  | Роль | Задачи |
+| ------------- | ------------- | ------------- |
+| Дамир  | Teamlead   | 2 + 3 |
+| Оля  | Разработка интерфейса UX/UI  | 1 |
+| Дима  | F | 20 |
+| Саша  | F | 11 + 12 |
+| Юлдаш  | F  | 16 |
+| Генна  | F  | 7 + 8 |
+| Валерия  | F  | 13 + 9 |
+| Данил  | B  | 4 + 14 |
+| Володя  | B  | 19 + 23 |
+| Макар  | B  | 10 + 15 |
+| Инна  | B  | 27 + 1 |
+| Марат  | B  | 24 + 25 |
+| Диана  | Database  | 3 + 5 |
+| Олег  | F  |13 + 22 |
+| Вадим  | F  | 18 |
+| Даша  | B  | 6 + 17 |
+| Алена  | F  | 26 |
+| Ира  | Unemployed  | - |
+| Даурен  | Unemployed  | - |
 
 Дизайн сайта: https://www.figma.com/file/NJVOiHCoeSbqa17b0leegB/MONOPOLY?node-id=0%3A1&t=uHIAWs4VGFH0RVhg-1
 
