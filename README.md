@@ -24,9 +24,11 @@
 | Ира  | Unemployed  | - |
 | Даурен  | Unemployed  | - |
 
-Дизайн сайта: https://www.figma.com/file/NJVOiHCoeSbqa17b0leegB/MONOPOLY?node-id=0%3A1&t=uHIAWs4VGFH0RVhg-1
+## Дизайн сайта
+https://www.figma.com/file/NJVOiHCoeSbqa17b0leegB/MONOPOLY?node-id=0%3A1&t=uHIAWs4VGFH0RVhg-1
 
-Схема взаимодействия экранов - https://www.figma.com/file/c5sMST73hOa9AGCMSJr1Wr/MONOPOLY?type=whiteboard&node-id=0-1&t=EXhf2PJx9VIxQJUk-0
+## Схема взаимодействия экранов
+https://www.figma.com/file/c5sMST73hOa9AGCMSJr1Wr/MONOPOLY?type=whiteboard&node-id=0-1&t=EXhf2PJx9VIxQJUk-0
 ## Docker
 
 - [Установка](https://docs.docker.com/desktop/install/windows-install)
