@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -9,3 +10,15 @@ class Room(models.Model):
     current_players = models.IntegerField()
     starting_balance = models.IntegerField(default=0)
     creation_datetime = models.DateTimeField()
+
+
+class User(models.Model):
+    username = models.CharField(max_length=50)
+    balance = models.IntegerField(default=0)
+    creation_datetime = models.DateTimeField()
+
+
+class UserRoom(models.Model):
+    room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    creation_datetime = models.DateTimeField(null=True)

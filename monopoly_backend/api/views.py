@@ -6,11 +6,12 @@ from rest_framework import status
 
 from django.db import models
 
-from .models import Room
-from .serializers import RoomSerializer
-
+from .models import Room, User, UserRoom
+from .serializers import RoomSerializer, UserSerializer, UserRoomSerializer
 
 from datetime import datetime
+
+
 # Create your views here.
 
 
@@ -35,6 +36,7 @@ class GetRoomById(APIView):
             many=False
         )
         return Response(serializer.data)
+
 
 class CreateRoom(APIView):
     def get(self, request):
@@ -79,4 +81,78 @@ class CreateRoom(APIView):
             many=False
         )
 
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class CreateUser(APIView):
+    def get(self, request):
+        id_room = request.GET.get("id_room")
+        username = request.GET.get("username")
+        balance = request.GET.get("balance")
+        if id_room is None or username is None:
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        if not id_room.isdigit():
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        else:
+            id_room = int(id_room)
+        if balance is None:
+            balance = 0
+        else:
+            if not balance.isdigit():
+                return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                balance = int(balance)
+
+        room_queryset = Room.objects.filter(id=id_room)
+        if len(room_queryset) == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        room = room_queryset[0]
+        if room.max_players < room.current_players + 1:
+            return Response(status=status.HTTP_409_CONFLICT)
+
+        user_queryset = User.objects.filter(username=username)
+        if len(user_queryset) > 0:
+            user = user_queryset[0]
+            user_room_queryset = UserRoom.objects.filter(user__in=user_queryset).filter(room=room)
+            if len(user_room_queryset) > 0:
+                return Response(status=status.HTTP_409_CONFLICT)
+
+        user = User()
+        user.username = username
+        user.balance = balance
+        user.creation_datetime = datetime.now()
+        user.save()
+
+        user_room = UserRoom()
+        user_room.user = user
+        user_room.room = room
+        user_room.creation_datetime = datetime.now()
+
+        room.current_players += 1
+        room.save()
+
+        user_room.save()
+
+        serializer = UserRoomSerializer(
+            instance=user_room,
+            many=False
+        )
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GetUserByIdRoom(APIView):
+    def get(self, request, id_user, id_room):
+        user_queryset = User.objects.filter(id=id_user)
+        room_queryset = Room.objects.filter(id=id_room)
+        if len(user_queryset) == 0 or len(room_queryset) == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        user_room_queryset = UserRoom.objects.filter(user=user_queryset[0]).filter(room=room_queryset[0])
+        if len(user_room_queryset) == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = UserSerializer(
+            instance=user_queryset[0],
+            many=False
+        )
         return Response(serializer.data, status=status.HTTP_200_OK)

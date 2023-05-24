@@ -8,3 +8,15 @@ class RoomSerializer(serializers.Serializer):
     current_players = serializers.IntegerField()
     starting_balance = serializers.IntegerField(default=0)
     creation_datetime = serializers.DateTimeField()
+
+class UserSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    username = serializers.CharField(max_length=50)
+    balance = serializers.IntegerField(default=0)
+    creation_datetime = serializers.DateTimeField()
+
+class UserRoomSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    user = UserSerializer()
+    room = RoomSerializer()
+    creation_datetime = serializers.DateTimeField()
