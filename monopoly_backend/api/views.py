@@ -6,8 +6,8 @@ from rest_framework import status
 
 from django.db import models
 
-from .models import Room, User, UserRoom
-from .serializers import RoomSerializer, UserSerializer, UserRoomSerializer
+from .models import Room, User, UserRoom, Transaction
+from .serializers import RoomSerializer, UserSerializer, UserRoomSerializer, TransactionSerializer
 
 from datetime import datetime
 
@@ -140,6 +140,7 @@ class CreateUser(APIView):
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class GetUserByIdRoom(APIView):
     def get(self, request, id_user, id_room):
         user_queryset = User.objects.filter(id=id_user)
@@ -157,14 +158,51 @@ class GetUserByIdRoom(APIView):
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class GetUsersByIdRoom(APIView):
-    def get(self, request,  id_room):
+    def get(self, request, id_room):
         queryset = UserRoom.objects.filter(room_id=id_room)
         if len(queryset) == 0:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        user_queryset = User.objects.filter(id__in=[ userroom.user_id for userroom in queryset])
+        user_queryset = User.objects.filter(id__in=[userroom.user_id for userroom in queryset])
         serializer = UserSerializer(
             instance=user_queryset,
             many=True
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class MoneyTransfer(APIView):
+    def get(self, request):
+        money = request.GET.get("money")
+        sender = request.GET.get("sender_id")
+        receiver = request.GET.get("receiver_id")
+        if sender is None or receiver is None or not sender.isdigit() or not receiver.isdigit() or money is None or not money.isdigit():
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        if sender == receiver:
+            return Response(status=status.HTTP_409_CONFLICT)
+        sender = User.objects.filter(id=int(sender))
+        receiver = User.objects.filter(id=int(receiver))
+        money = int(money)
+        if len(sender) != 1 or len(receiver) != 1:
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        sender =sender[0]
+        receiver =receiver[0]
+        if sender.balance - money <0:
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        sender.balance -= money
+        receiver.balance += money
+        sender.save()
+        receiver.save()
+        transaction = Transaction()
+        transaction.save()
+        transaction.users.add(sender,receiver)
+        transaction.creation_datetime = datetime.now()
+        transaction.money =money
+        transaction.save()
+        serializer = TransactionSerializer(
+            instance=transaction,
+            many=False
+        )
+        return Response(serializer.data, status=status.HTTP_200_OK)
+

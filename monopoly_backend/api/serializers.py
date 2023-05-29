@@ -20,3 +20,9 @@ class UserRoomSerializer(serializers.Serializer):
     user = UserSerializer()
     room = RoomSerializer()
     creation_datetime = serializers.DateTimeField()
+
+class TransactionSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    users = UserSerializer(many=True)
+    creation_datetime = serializers.DateTimeField()
+    money = serializers.IntegerField()

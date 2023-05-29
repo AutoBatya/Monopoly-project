@@ -22,3 +22,8 @@ class UserRoom(models.Model):
     room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     creation_datetime = models.DateTimeField(null=True)
+
+class Transaction(models.Model):
+    users = models.ManyToManyField(User, null=True)
+    creation_datetime = models.DateTimeField(null=True)
+    money =models.IntegerField(null=True)
