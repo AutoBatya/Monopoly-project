@@ -95,21 +95,20 @@ class CreateUser(APIView):
             return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
         else:
             id_room = int(id_room)
+        room_queryset = Room.objects.filter(id=id_room)
+        if len(room_queryset) == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        room = room_queryset[0]
+        if room.max_players < room.current_players + 1:
+            return Response(status=status.HTTP_409_CONFLICT)
+
         if balance is None:
-            balance = 0
+            balance = room_queryset[0].starting_balance
         else:
             if not balance.isdigit():
                 return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 balance = int(balance)
-
-        room_queryset = Room.objects.filter(id=id_room)
-        if len(room_queryset) == 0:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        room = room_queryset[0]
-        if room.max_players < room.current_players + 1:
-            return Response(status=status.HTTP_409_CONFLICT)
 
         user_queryset = User.objects.filter(username=username)
         if len(user_queryset) > 0:
