@@ -156,3 +156,15 @@ class GetUserByIdRoom(APIView):
             many=False
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GetUsersByIdRoom(APIView):
+    def get(self, request,  id_room):
+        queryset = UserRoom.objects.filter(room_id=id_room)
+        if len(queryset) == 0:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        user_queryset = User.objects.filter(id__in=[ userroom.user_id for userroom in queryset])
+        serializer = UserSerializer(
+            instance=user_queryset,
+            many=True
+        )
+        return Response(serializer.data, status=status.HTTP_200_OK)
