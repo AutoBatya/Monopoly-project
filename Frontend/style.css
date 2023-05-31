@@ -1,0 +1,147 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+@font-face{
+    font-family: "Alice";
+    src: local("Alice"), url("/Alice/alice.woff2") format("woff2");
+}
+.logo1 {
+ display: block;
+ margin: auto;
+ margin-top: 15px;
+ text-align: center;
+ height: 350px;
+ width: 750px;
+
+}
+body{
+    font-family: "Alice", "Arial", sans-serif;
+    background: #C6C6C6;
+}
+header{
+    display: block;
+    align-items: center;
+    margin: auto;
+
+}
+div{
+    margin: auto;
+    margin-top: 80px;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 15px; 
+    background: #D6D6D6;
+}
+.block{
+    margin-top: 0px;
+    box-sizing: border-box;
+    width: 720px;
+    height: 1000px;
+    margin-bottom: 70px;
+    background: #D6D6D6;
+}
+.icona{
+       border: 2px solid black;
+       border-radius: 10px; 
+       padding-left: 20px;
+       padding-right: 20px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       background: #E6E6E6;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 720px;
+    height: 70px;
+    background: #D6D6D6;
+}
+.player1{
+    display: flex;
+justify-content: flex-end;    
+    margin-top: 40px;
+    box-sizing: border-box;
+    width: 650px;
+    height: 110px;
+    background: #E6E6E6;
+    }
+.player2{
+    display: flex;
+justify-content: flex-end;    
+    margin-top: 40px;
+    box-sizing: border-box;
+    width: 650px;
+    height: 110px;
+    background: #E6E6E6;
+    }
+li{
+    justify-content: space-between;
+    list-style-type:  none;
+   padding: 15px 15px;
+   background-color: #D9D9D9;
+   color: #E6E6E6;
+    border: 2px solid black;
+   border-radius: 15px;
+    }
+  h1 {
+    margin-top: 0px;
+   text-align: center;
+    font-family: Alice; 
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 95px;
+  }
+    h2 {
+    margin-top: 60px;
+    font-family: Alice;
+   text-align: center;
+    font-weight: 1px;
+    font-size: 40px;
+  }
+    h3 {
+    padding: 0px 85px;    
+    font-family: Alice;
+    font-size: 30px;
+  }
+  button {
+
+   margin-right: 10px; 
+   margin-left: 10px;
+   padding: 7px 40px;
+   background-color: #D1D1D1;
+   color: #E6E6E6;
+    border: 2px solid black;
+   border-radius: 15px;
+   cursor: pointer;
+   box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+
+  }  
+  }
+  button:hover {
+   background-color: #333333;
+  }
+    .Add { 
+   margin-left: 220px;
+      margin-top: 450px;
+   background-color: #D1D1D1;
+   color: #E6E6E6;
+    border: 2px solid black;
+   border-radius: 15px;
+   cursor: pointer;
+   box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+
+  }  
+  }
+  .Add:hover {
+   background-color: #999999;
+  }
+  Span{
+    font-family: Alice;
+   text-align: center;
+    font-size: 40px;
+    color: #000;
+  }
