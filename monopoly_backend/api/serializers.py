@@ -26,3 +26,10 @@ class TransactionSerializer(serializers.Serializer):
     users = UserSerializer(many=True)
     creation_datetime = serializers.DateTimeField()
     money = serializers.IntegerField()
+    
+class ActionSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    type_action = serializers.CharField(max_length=255)
+    user_id = serializers.IntegerField()
+    room_id = serializers.IntegerField()
+    action_time = serializers.DateTimeField()
