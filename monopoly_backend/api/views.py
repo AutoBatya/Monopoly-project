@@ -213,35 +213,22 @@ class GetActionsByUserId(APIView):
         room_id = request.GET.get('room_id')
         user_token = request.GET.get('user_token')
         last_action_id = request.GET.get('last_action_id')
-
-        # Проверка, что id комнаты и токен пользователя предоставлены в запросе
         if not room_id or not user_token:
             return JsonResponse({'error': 'Не указаны id комнаты или токен пользователя'})
-
-        # Проверка, что id комнаты и токен пользователя действительны и что пользователь имеет доступ к этой комнате
         try:
             room = Room.objects.get(id=room_id)
         except Room.DoesNotExist:
             return JsonResponse({'error': 'Комната с указанным id не найдена'})
-
-        # Проверка доступа пользователя к комнате
         if not room.user_set.filter(token=user_token).exists():
             return JsonResponse({'error': 'Пользователь не имеет доступа к данной комнате'})
-
-        # Получение последнего известного действия, если оно указано в запросе
         if last_action_id:
             try:
                 last_action = room.action_set.get(id=last_action_id)
             except Action.DoesNotExist:
                 return JsonResponse({'error': 'Указанный id последнего известного действия не найден'})
-
-            # Выборка всех действий для данной комнаты, которые произошли после указанного действия
             actions = room.action_set.filter(id__gt=last_action_id)
         else:
-            # Получение всех действий для данной комнаты
             actions = room.action_set.all()
-
-        # Сериализация действий
         serializer = RoomSerializer(actions, many=True)
 
         return JsonResponse(serializer.data, safe=False)
