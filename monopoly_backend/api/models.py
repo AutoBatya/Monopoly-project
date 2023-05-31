@@ -14,7 +14,6 @@ class Room(models.Model):
 
 class User(models.Model):
     username = models.CharField(max_length=50)
-    user_id = models.IntegerField()
     balance = models.IntegerField(default=0)
     creation_datetime = models.DateTimeField()
 
