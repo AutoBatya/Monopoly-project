@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Monopoly API
+  version: 0.0.1
+
+tags:
+  - name: monopoly
+    description: Monopoly API
+
+servers:
+  - url: http://127.0.0.1
+    description: Local Monopoly API
+
+paths:
+  /api/rooms/:
+    get:
+      tags:
+        - monopoly
+      summary:
+      description: 'Метод получения всех комнат'
+      operationId: '2'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rooms'
+
+  /api/rooms/<int:id>/:
+    get:
+      tags:
+        - monopoly
+      summary:
+      description: 'Метод получения комнаты по id'
+      operationId: '3'
+      parameters: 
+        - in: path
+          name: id
+          description: 'id комнаты'
+          schema:
+            type: integer
+          required: true
+
+      
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '404':
+          description: 'Возникает, когда нет комнаты с таким id'
+
+  /api/rooms/create/:
+    get:
+      tags:
+        - monopoly
+      summary:
+      description: 'Создает новую комнату и возвращает ее'
+      operationId: '4'
+      parameters:
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+          description: 'Название комнаты'
+        - in: query
+          name: max_players
+          required: false
+          schema:
+            type: integer
+          description: 'Максимальное кол-во игроков (по-умолчанию 4)'
+        - in: query
+          name: starting_balance
+          required: false
+          schema:
+            type: integer
+          description: 'Стартовый баланс (по-умолчанию 0)'
+          
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '406':
+          description: 'Возникает, когда max_players или starting_balance не число, а так же когда имя комнаты пустая строка.'
+        '409':
+          description: 'Возникает, когда комната с таким названием уже существует'
+
+
+
+components:
+  schemas:
+    Test:
+      type: object
+      properties:
+        token:
+          type: string
+          example: example test
+        test:
+          type: string
+          example: example test
+    
+    
+    Room:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        max_players:
+          type: integer
+        current_players:
+          type: integer
+        starting_balance:
+          type: integer
+        creation_datetime:
+          type: string
+          format: date-time
+
+    Rooms:
+      type: array
+      items:
+          $ref: '#/components/schemas/Room'
