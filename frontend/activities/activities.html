@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Присоединиться к комнате</title>
+</head>
+<body>
+    <div class="body-container">
+        <div class="logo"><img src="img/logo.png"></div>
+        <span class="title">monopoly</span>
+        <div class="main-wrapper">
+            <div class="menu">
+                <a class="menu__item user" href="#">
+                    <img src="img/user.svg">
+                </a>
+                <a class="menu__item cash" href="#">
+                    <img src="img/cash.svg">
+                </a>
+                <a class="menu__item community" href="#">
+                    <img src="img/community.svg">
+                </a>
+                <a class="menu__item game checked" href="#">
+                    <img src="img/game.svg">
+                </a>
+                <a class="menu__item dice" href="#">
+                    <img src="img/dice.svg">
+                </a>
+            </div>
+
+            <div class="activities">
+                <div class="activities__list">
+                </div>
+                
+                <div class="activities__error">
+                    <p class="activities__error__content">Ошибка! Невозможно подключиться к серверу!</p>
+                </div>
+            </div>
+            
+            <div class="activities__message">
+                <div class="activities__message__wrapper">
+                    <form class="activities__message_form">
+                        <input class="activities__message__form__text" type="text" placeholder="Введите сообщение">
+                        <input class="activities__message__form__submit" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="activities.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    background-color: rgba(198, 198, 198, 1);
+}
+@font-face {
+    font-family: Alice;
+    src: url("fonts/Alice-Regular.ttf");
+}
+.body-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+.logo {
+     width: 300px;
+     height: 185px;
+     margin-top: 15px;
+     margin-bottom: 10px;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+.title {
+    font-family: 'Alice', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 55px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 50px;
+}
+.menu {
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 289px;
+    height: 31px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+.menu__item {
+    width: 46px;
+    height: 24px;
+    position: relative;
+}
+.menu__item img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.menu__item.user img {
+    width: 15px;
+    height: 15px;
+}
+.menu__item.cash img{
+    width: 18px;
+    height: 10px;
+}
+.menu__item.community img{
+    width: 27px;
+    height: 17px;
+}
+.menu__item.game  img{
+    width: 8.5px;
+    height: 14.67px;
+}
+.menu__item.dice  img{
+    width: 12.75px;
+    height: 12px;
+}
+.menu__item.checked {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000000;
+    border-radius: 7px;
+}
+.menu__item:hover {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+}
+.activities {
+    width: 289px;
+    height: 484px;
+    box-sizing: border-box;
+    background-color: #D9D9D9;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.activities__error {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 93%;
+}
+.activities__error__content {
+    font-size: 15px;
+    font-family: 'Alice', sans-serif;
+    width: 200px;
+    text-align: center;
+}
+.activities::-webkit-scrollbar {
+    width: 4px;
+}
+.activities::-webkit-scrollbar-thumb {
+    background-color: rgba(36, 36, 36, 0.35);
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.activities__message {
+    position: absolute;
+    width: 289px;
+    height: 33px;
+    background-color: #F3F3F3;
+    border: 1px solid #000000;
+    border-radius: 7px;
+}
+.activities__message__form__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.activities__message__form__text {
+    font-family: 'Alice', sans-serif;
+    font-size: 15px;
+    background-color: inherit;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 7px;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+}
+.activities__message__form__text:focus {
+    outline: none;
+}
+.activities__message__form__submit {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 6px;
+    left: 0;
+    margin: auto 0 auto auto;
+    width: 19px;
+    height: 16px;
+    background: url("img/send.svg");
+    border: none;
+    text-indent: -9999px;
+}
+.activities__list {
+    margin-top: 33px;
+}
+p.activities__list__item {
+    font-family: 'Alice', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 28px;
+}
+.activities__list__message {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+.activities__list__message__img {
+    width: 28px;
+    height: 31px;
+    background: #F3F3F3;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 7px;
+    margin-right: 6px;
+    background-image: url("img/avatar1.svg");
+    background-size: 24px 28px;
+    background-repeat: no-repeat;
+    background-position: center center ;
+}
+.activities__list__message__p {
+    min-height: 30px;
+    min-width: 10px;
+    max-width: 200px;
+    background: #F3F3F3;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-family: 'Alice', sans-serif;
+    font-size: 15px;
+    padding: 6px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+.activities__list__message.my-message {
+    justify-content: flex-end;
+    margin-right: 14px;
+}
+.activities__list__message.my-message .activities__list__message__p {
+    background-color: #F3F3F3;
+}
+.activities__list__money-request,
+.activities__list__dice {
+    width: 244px;
+    height: 67px;
+    background: #F3F3F3;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 7px;
+    font-family: 'Alice', sans-serif;
+    font-size: 15px;
+    margin: 12px auto 12px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+.activities__list__money-request p {
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+.activities__list__money-request a {
+    background-color: #DBDBDB;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    width: 25px;
+    height: 23px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+}
+.activities__list__money-request__actions__accept {
+    background-image: url("img/accept.svg");
+}
+.activities__list__money-request__actions__decline {
+    background-image: url("img/decline.svg");
+    margin-right: 31px;
+}
+.activities__list__dice::after,
+.activities__list__dice::before {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-image: url("img/dice2.svg");
+    background-size: contain;
+    right: 5px;
+    bottom: 5px;
+}
+.activities__list__dice::before {
+    background-image: url("img/dice1.svg");
+    left: 5px;
+    top: 5px;
+}
+.activities__list__dice p {
+    max-width: 200px;
+}
