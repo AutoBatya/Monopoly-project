@@ -16,7 +16,6 @@ paths:
     get:
       tags:
         - monopoly
-      summary:
       description: 'Метод получения всех комнат'
       operationId: '2'
       responses:
@@ -27,11 +26,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Rooms'
 
-  /api/rooms/<int:id>/:
+  /api/rooms/{id}/:
     get:
       tags:
         - monopoly
-      summary:
       description: 'Метод получения комнаты по id'
       operationId: '3'
       parameters: 
@@ -57,7 +55,6 @@ paths:
     get:
       tags:
         - monopoly
-      summary:
       description: 'Создает новую комнату и возвращает ее'
       operationId: '4'
       parameters:
@@ -91,7 +88,76 @@ paths:
           description: 'Возникает, когда max_players или starting_balance не число, а так же когда имя комнаты пустая строка.'
         '409':
           description: 'Возникает, когда комната с таким названием уже существует'
+  
+  /api/users/create/:
+    get:
+      tags:
+        - monopoly
+      description: 'Создает пользователя в комнате'
+      operationId: '5'
+      parameters:
+        - in: query
+          name: id_room
+          required: true
+          schema:
+            type: integer
+          description: 'id комнаты'
+        - in: query
+          name: username
+          required: true
+          schema:
+            type: string
+          description: 'Имя пользователя'
+        - in: query
+          name: balance
+          required: false
+          schema:
+            type: integer
+          description: 'Стартовый баланс (по-умолчанию равен балансу комнаты)'
+          
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoom'
+        '406':
+          description: 'Возникает, когда id_room или username не существует, а так же когда balance не число.'
+        '409':
+          description: 'Возникает, когда комната переполнена или пользователь с переданным username уже существует в этой комнате'
+        '404':
+          description: 'Когда не существует комнаты с переданным id_room'
 
+  /api/users/{id_user}/rooms/{id_room}/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения пользователя по id комнаты и id пользователя'
+      operationId: '6'
+      parameters: 
+        - in: path
+          name: id_user
+          description: 'id пользователя'
+          schema:
+            type: integer
+          required: true
+        - in: path
+          name: id_room
+          description: 'id комнаты'
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: 'Возникает, когда нет комнаты с таким id или нет пользователя с таким id'
 
 
 components:
@@ -128,3 +194,32 @@ components:
       type: array
       items:
           $ref: '#/components/schemas/Room'
+      
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        balance:
+          type: integer
+        creation_datetime:
+          type: string
+          format: date-time
+        
+    UserRoom:
+      type: object
+      properties:
+        id:
+          type: integer
+        user:
+          $ref: '#/components/schemas/User'
+        room:
+          $ref: '#/components/schemas/Room'
+        creation_datetime:
+          type: string
+          format: date-time
+        
+        
+
