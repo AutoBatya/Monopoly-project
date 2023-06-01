@@ -9,6 +9,10 @@ html,body {
 html {
     background-color: rgba(198, 198, 198, 1);
 }
+footer {
+    width: 100%;
+    height: 10%;
+}
 @font-face {
     font-family: Alice;
     src: url("fonts/Alice-Regular.ttf");
