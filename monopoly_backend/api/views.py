@@ -13,6 +13,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_GET
 
 from datetime import datetime
+from random import randint
 
 
 # Create your views here.
@@ -208,6 +209,66 @@ class MoneyTransfer(APIView):
         )
         return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
 
+
+
+class Dice(APIView):
+    def get(self, request):
+        dice1, dice2 = randint(1, 6), randint(1, 6)
+        answer = {
+            "dice1": dice1,
+            "dice2": dice2,
+            "sum": dice1 + dice2
+        }
+        return JsonResponse(answer, status=status.HTTP_200_OK, safe=False)
+
+class DiceRate(APIView):
+    EVEN, ODD = "even", "odd"
+    def get(self, request):
+        def check(a, b):
+            if a == DiceRate.EVEN and b % 2 == 0 \
+                    or a == DiceRate.ODD and b % 2 != 0:
+                return True
+            else:
+                return False
+
+        user_id = request.GET.get("user_id")
+        rate = request.GET.get("rate")
+        bet = request.GET.get("bet") #even or odd
+        print(user_id, rate, bet)
+        if user_id is None or rate is None or bet is None \
+                or not rate.isdigit() or not user_id.isdigit() \
+                or not (bet in [DiceRate.EVEN, DiceRate.ODD]):
+            return JsonResponse({}, status=status.HTTP_406_NOT_ACCEPTABLE, safe=False)
+
+        user_id = int(user_id)
+        rate = int(rate)
+
+        user_queryset = User.objects.filter(id=user_id)
+
+        if len(user_queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+
+        user = user_queryset[0]
+
+        if rate > user.balance:
+            return JsonResponse({"error": "not_enough_money"})
+
+        dice1, dice2 = randint(1, 6), randint(1, 6)
+        _sum = dice1 + dice2
+        answer = {
+            "dice1": dice1,
+            "dice2": dice2,
+            "sum": dice1 + dice2
+        }
+
+        if check(bet, _sum):
+            user.balance += rate
+            user.save()
+            return JsonResponse(answer | {"status": "win"})
+        else:
+            user.balance -= rate
+            user.save()
+            return JsonResponse(answer | {"status": "lose"})
 
 class GetActionsByUserId(APIView):
     def get_actions(request):
