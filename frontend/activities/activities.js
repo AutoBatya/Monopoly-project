@@ -4,7 +4,7 @@ let msg = document.querySelector('.activities__message__form__text');
 let form = document.querySelector('.activities__message_form');
 let activities = document.querySelector('.activities');
 let errorMsg = document.querySelector('.activities__error');
-
+let count = 0; // счетчик событий
 
 /*let xhr = new XMLHttpRequest();
 // адрес, куда мы отправим нашу JSON-строку
@@ -23,7 +23,6 @@ xhr.onreadystatechange = function () {
     }
 };*/
 
-
 // Создание события для передачи на сервер
 const createAction = (id, type, details) => {
     let obj = {};
@@ -34,6 +33,7 @@ const createAction = (id, type, details) => {
     //xhr.send(obj);
 }
 
+// Обработчик для запроса
 const createRequestHandler = (obj, fromID, toID, type, money) => {
     obj.addEventListener('click', (evt) => {
         evt.preventDefault();
@@ -60,12 +60,34 @@ form.addEventListener('submit', (evt) => {
 })
 
 //Запрос к серверу на получение данных
-/*fetch('https://jsonplaceholder.typicode.com/todos')
-.then(response => response.json())
-.then(json => initializeActions(json))
-.catch(error => {
-    errorMsg.style.display = 'flex';
-})*/
+/*let isFirst = true;
+let previousData = 0;
+function fetchData() {
+    // Вызываем API для получения массива данных
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(response => response.json())
+    .then(data => {
+    console.log('Data received successfully');
+    if(isFirst) {
+        //initializeActions(data);
+        console.log('Displaying data');
+        isFirst = false;
+        previousData = data.length;
+        activities.scrollTop = activities.scrollHeight;
+    }
+    if(data.length > previousData && !isFirst) {
+    location.reload();
+    }
+    })
+    .catch(error => {
+        console.log("Error:", error);
+        errorMsg.style.display = 'flex';
+    });
+}
+    
+// Вызываем функцию fetchData() каждую секунду
+setInterval(fetchData, 1000);*/
+
 
 // Свой айди
 let myId = 2;
@@ -226,6 +248,7 @@ const createMessage = (id, message) => {
     return item;
 }
 
+// Создать экземпляр типа "Бросок кубиков"
 const createDice = (action) => {
     let item = document.createElement('div');
     let p = document.createElement('p');
@@ -342,4 +365,5 @@ const initializeActions = (actions) => {
     })
 }
 
+// Отрисовать действия (actions - заглушка)
 initializeActions(actions);
