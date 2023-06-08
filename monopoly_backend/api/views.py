@@ -209,27 +209,4 @@ class MoneyTransfer(APIView):
         return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
 
 
-class GetActionsByUserId(APIView):
-    def get_actions(request):
-        room_id = request.GET.get('room_id')
-        user_token = request.GET.get('user_token')
-        last_action_id = request.GET.get('last_action_id')
-        if not room_id or not user_token:
-            return JsonResponse({'error': 'Не указаны id комнаты или токен пользователя'})
-        try:
-            room = Room.objects.get(id=room_id)
-        except Room.DoesNotExist:
-            return JsonResponse({'error': 'Комната с указанным id не найдена'})
-        if not room.user_set.filter(token=user_token).exists():
-            return JsonResponse({'error': 'Пользователь не имеет доступа к данной комнате'})
-        if last_action_id:
-            try:
-                last_action = room.action_set.get(id=last_action_id)
-            except Action.DoesNotExist:
-                return JsonResponse({'error': 'Указанный id последнего известного действия не найден'})
-            actions = room.action_set.filter(id__gt=last_action_id)
-        else:
-            actions = room.action_set.all()
-        serializer = RoomSerializer(actions, many=True)
 
-        return JsonResponse(serializer.data, safe=False)

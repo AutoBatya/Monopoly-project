@@ -32,7 +32,7 @@ paths:
         - monopoly
       description: 'Метод получения комнаты по id'
       operationId: '3'
-      parameters: 
+      parameters:
         - in: path
           name: id
           description: 'id комнаты'
@@ -40,7 +40,7 @@ paths:
             type: integer
           required: true
 
-      
+
       responses:
         '200':
           description: ''
@@ -76,7 +76,7 @@ paths:
           schema:
             type: integer
           description: 'Стартовый баланс (по-умолчанию 0)'
-          
+
       responses:
         '200':
           description: ''
@@ -88,7 +88,7 @@ paths:
           description: 'Возникает, когда max_players или starting_balance не число, а так же когда имя комнаты пустая строка.'
         '409':
           description: 'Возникает, когда комната с таким названием уже существует'
-  
+
   /api/users/create/:
     get:
       tags:
@@ -114,7 +114,7 @@ paths:
           schema:
             type: integer
           description: 'Стартовый баланс (по-умолчанию равен балансу комнаты)'
-          
+
       responses:
         '200':
           description: ''
@@ -129,13 +129,14 @@ paths:
         '404':
           description: 'Когда не существует комнаты с переданным id_room'
 
+
   /api/users/{id_user}/rooms/{id_room}/:
     get:
       tags:
         - monopoly
       description: 'Метод получения пользователя по id комнаты и id пользователя'
       operationId: '6'
-      parameters: 
+      parameters:
         - in: path
           name: id_user
           description: 'id пользователя'
@@ -159,6 +160,47 @@ paths:
         '404':
           description: 'Возникает, когда нет комнаты с таким id или нет пользователя с таким id'
 
+  /api/users/rooms/{id_room}/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения пользователей по id комнаты '
+      operationId: '7'
+      parameters:
+        - in: path
+          name: id_room
+          description: 'id комнаты'
+          schema:
+            type: integer
+          required: true
+
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRoom'
+        '404':
+          description: 'Возникает, когда нет игроков в комнате'
+
+  /api/users/send/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод перевода денег игроку'
+      operationId: '8'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '406':
+          description: 'У отправителя недостаточно средств, отправителей/получателей больше одного, отправителя/получателя не существует или введено не число'
+        '409':
+          description: 'Отправитель и получатель совпадают'
 
 components:
   schemas:
@@ -171,8 +213,8 @@ components:
         test:
           type: string
           example: example test
-    
-    
+
+
     Room:
       type: object
       properties:
@@ -194,7 +236,7 @@ components:
       type: array
       items:
           $ref: '#/components/schemas/Room'
-      
+
     User:
       type: object
       properties:
@@ -207,7 +249,7 @@ components:
         creation_datetime:
           type: string
           format: date-time
-        
+
     UserRoom:
       type: object
       properties:
@@ -220,6 +262,19 @@ components:
         creation_datetime:
           type: string
           format: date-time
-        
-        
 
+    Transaction:
+      type: object
+      properties:
+        creation_datetime:
+          type: string
+          format: date-time
+        money:
+          type: integer
+        users:
+          type: array
+          items:
+              $ref: '#/components/schemas/User'
+
+
+    

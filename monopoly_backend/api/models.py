@@ -25,13 +25,9 @@ class UserRoom(models.Model):
     
 
 class Transaction(models.Model):
-    users = models.ManyToManyField(User, null=True)
+    users = models.ManyToManyField(User)
     creation_datetime = models.DateTimeField(null=True)
     money =models.IntegerField(null=True)
     
     
-class Action(models.Model):
-    type_action = models.CharField(max_length=255)
-    user_id = models.IntegerField()
-    room_id = models.IntegerField()
-    action_time = models.DateTimeField()
+
