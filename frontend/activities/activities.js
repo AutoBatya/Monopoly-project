@@ -60,15 +60,16 @@ form.addEventListener('submit', (evt) => {
 })
 
 //Запрос к серверу на получение данных
-/*let isFirst = true;
+let isFirst = true;
 let previousData = 0;
-function fetchData() {
+function fetchActions() {
     // Вызываем API для получения массива данных
     fetch("https://jsonplaceholder.typicode.com/todos")
     .then(response => response.json())
     .then(data => {
     console.log('Data received successfully');
     if(isFirst) {
+        //fetchPlayers();
         //initializeActions(data);
         console.log('Displaying data');
         isFirst = false;
@@ -86,12 +87,26 @@ function fetchData() {
 }
     
 // Вызываем функцию fetchData() каждую секунду
-setInterval(fetchData, 1000);*/
+setInterval(fetchActions, 1000);
 
+// Запрос к серверу на получение списка пользователей
+/* const players = [];
+function fetchPlayers() {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(response => response.json())
+    .then(data => {
+        players = structuredClone(data);
+    })
+    .catch(error => {
+        console.log("Error:", error);
+        errorMsg.style.display = 'flex';
+    });
+} */
 
 // Свой айди
 let myId = 2;
 
+// Запрос для своего айди (?)
 /*fetch('https://jsonplaceholder.typicode.com/todos')
 .then(response => response.json())
 .then(json => {myId = json['id']})
@@ -210,6 +225,7 @@ menuItems.forEach(menuItem => {
             item.classList.remove('checked');
         })
         menuItem.classList.add('checked');
+        console.log('Transition to another page')
     })
 });
 
