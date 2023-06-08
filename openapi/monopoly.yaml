@@ -159,6 +159,78 @@ paths:
         '404':
           description: 'Возникает, когда нет комнаты с таким id или нет пользователя с таким id'
 
+  /api/dice/random:
+      get:
+        tags:
+        - monopoly
+        description: "получение чисел с игральных кубиков"
+        operationId: "dice_random"
+        responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      dice1:
+                        type: integer
+                      dice2:
+                        type: integer
+                      sum:
+                        type: integer
+  
+  /api/dice/rate:
+      get:
+        tags:
+        - monopoly
+        description: "получение чисел с игральных кубиков"
+        operationId: "dice_rate"
+        parameters:
+          - in: query
+            name: user_id
+            required: true
+            schema:
+              type: integer
+            description: 'id пользователя'
+          - in: query
+            name: rate
+            required: true
+            schema:
+              type: integer
+            description: 'кол-во денег поставили'
+          - in: query
+            name: bet
+            required: true
+            schema:
+              type: string
+              enum:
+                - "even"
+                - "odd"
+            description: "принимает ставку на четное или нечетное"
+        responses:
+            '200':
+              description: ''
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      dice1:
+                        type: integer
+                      dice2:
+                        type: integer
+                      sum:
+                        type: integer
+                      status:
+                        type: string
+                        enum:
+                          - "win"
+                          - "lose"
+            "406":
+              description: "неправильно введены аргументы"
+            "404":
+              description: "нет пользователя с таким user_id"
 
 components:
   schemas:
