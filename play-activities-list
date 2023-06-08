@@ -1,0 +1,165 @@
+[33mcommit 28b12ba0ae59addf709b9a7df5fd90669cf0189b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/N20-display-activities-list[m[33m, [m[1;32mN20-display-activities-list[m[33m)[m
+Author: DmitriPrm <perminov.dima1@mail.ru>
+Date:   Thu Jun 8 19:14:06 2023 +0500
+
+    modified fetch actions request, added fetch players request, console msg if it's a transition to another page
+
+[33mcommit cfe10e94a14321106855aa5f8f7b8e814436404b[m
+Author: DmitriPrm <perminov.dima1@mail.ru>
+Date:   Wed Jun 7 21:29:25 2023 +0500
+
+    added game-field button; hover, active and focus styles to buttons
+
+[33mcommit 04edf198c64575a3d6e7c776e3e2402af9314204[m
+Author: DmitriPrm <perminov.dima1@mail.ru>
+Date:   Wed Jun 7 21:02:03 2023 +0500
+
+    added page reload
+
+[33mcommit c36293953662b9afac1d1f66bfc5d8e99a182318[m[33m ([m[1;31morigin/activities[m[33m)[m
+Author: DmitriPrm <perminov.dima1@mail.ru>
+Date:   Thu Jun 1 21:07:24 2023 +0500
+
+    fixed footer
+
+[33mcommit cd5c20271f632d408c0a10a10de941f900c6ca39[m
+Author: DmitriPrm <perminov.dima1@mail.ru>
+Date:   Thu Jun 1 20:33:22 2023 +0500
+
+    activities
+
+[33mcommit 4cb681d109e6571c3e3a55077cb71f6068dc7d9c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 20:19:36 2023 +0500
+
+    Update README.md
+
+[33mcommit f48eb4d06913ba52cbe2e02ae892f1c966f7e479[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:56:30 2023 +0500
+
+    Create main.py
+
+[33mcommit 13d430228260b244d1592f0fbe397402f80f224a[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:55:19 2023 +0500
+
+    Create monopoly.yaml
+
+[33mcommit 7ca46e716b04a14f12927724bdd50d239e8870df[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:54:22 2023 +0500
+
+    Create docker-compose.yaml
+
+[33mcommit 4d17f7bdfea1c225f5a41fd92ce0aa683de49b75[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:53:44 2023 +0500
+
+    Create main.py
+
+[33mcommit 88a1af5d1eb1aab426e96dccbf727e6a5bdb4923[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:52:58 2023 +0500
+
+    Create Dockerfile
+
+[33mcommit 5576f6f7aa6f5895c131f5cb55386a53b26439a1[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:52:03 2023 +0500
+
+    Create sitename.conf
+
+[33mcommit c79ff53438e7239f4717cd0235fed83c30a50bd1[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:49:58 2023 +0500
+
+    Create environments
+
+[33mcommit 1d2ae5e363c967964d98eea8012b103a8b081819[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:47:51 2023 +0500
+
+    Rename src to index.html
+
+[33mcommit 0738e5e4dfefea47c64d871633ac0882894b4111[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:47:25 2023 +0500
+
+    Create papka frontend
+
+[33mcommit e8d6c2181a959a0841621a156eba0791c67c931c[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:37:36 2023 +0500
+
+    Update README.md
+
+[33mcommit 1d5f9dc018ce2a02cad63ab914f6d54ff4c754ea[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:34:35 2023 +0500
+
+    Update README.md
+
+[33mcommit 57ebb797516bcbfec95cd35151a3987bca7199bd[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:24:08 2023 +0500
+
+    Update README.md
+
+[33mcommit bfd65485413e630cc3444afa1dde7fb15c8327b4[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Fri May 19 18:22:33 2023 +0500
+
+    Update README.md
+
+[33mcommit c59d74a2bcd524e96d600db0a298948a970ee693[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Sun May 7 13:35:35 2023 +0500
+
+    Update README.md
+
+[33mcommit dace1226d93bccbfdc75933cecdefe5849da14aa[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Sun May 7 13:35:21 2023 +0500
+
+    Update README.md
+
+[33mcommit 5c250c4fc2b25d78fbc79bcd4991366a6e842ac6[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Sun May 7 13:35:07 2023 +0500
+
+    Update README.md
+
+[33mcommit 9c5d8b9245e16960fce22ca1c049903f28aa5465[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Tue Apr 18 15:27:41 2023 +0500
+
+    Update README.md
+    
+    Добавление 2-х новых сотрудников через спальные принадлежности
+
+[33mcommit 8236f5595253510acdce342b6712032c145bbad5[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Mon Apr 17 13:26:24 2023 +0500
+
+    Update README.md
+    
+    Добавление основных функций монополии + ссылка на дизайн сайта
+
+[33mcommit b48b465bfdaf58fbe375bde4fd9ddc7693629a45[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Wed Mar 22 20:23:15 2023 +0500
+
+    Update README.md
+
+[33mcommit 3df4c825a885f9a784a47d7797780a5e68432607[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Wed Mar 22 20:13:38 2023 +0500
+
+    Update README.md
+
+[33mcommit 590ac6b3ab6ec33b760df4b59c1aeb50600ba1ba[m
+Author: AutoBatya <128380992+AutoBatya@users.noreply.github.com>
+Date:   Mon Mar 20 17:09:11 2023 +0500
+
+    Initial commit
