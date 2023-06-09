@@ -1,0 +1,153 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+@font-face{
+    font-family: "Alice";
+    src: url("/Alice/alice.woff2");
+}
+.logo1 {
+ display: block;
+ margin: auto;
+ margin-top: 15px;
+ text-align: center;
+ height: 350px;
+ width: 750px;
+
+}
+body{
+    font-family: "Alice", "Arial", sans-serif;
+    background: #C6C6C6;
+}
+header{
+    display: block;
+    align-items: center;
+    margin: auto;
+
+}
+
+
+.divv {
+    margin: auto;
+    margin-top: 80px;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 15px; 
+    background: #D6D6D6;
+}
+
+.block{
+    margin-top: 0px;
+    box-sizing: border-box;
+    width: 720px;
+    height: 1000px;
+    margin-bottom: 70px;
+    background: #D6D6D6;
+}
+.icona{
+       border: 2px solid black;
+       border-radius: 10px; 
+       padding-left: 20px;
+       padding-right: 20px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       background: #E6E6E6;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    width: 720px;
+    height: 70px;
+    background: #D6D6D6;
+}
+.player1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    box-sizing: border-box;
+    width: 650px;
+    height: 110px;
+    background: #E6E6E6;
+    }
+
+
+  h1 {
+    margin-top: 0px;
+   text-align: center;
+    font-family: Alice; 
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 95px;
+  }
+    h2 {
+    margin-top: 60px;
+    font-family: Alice;
+   text-align: center;
+    font-weight: 1px;
+    font-size: 40px;
+  }
+    h3 {
+    padding: 0px 50px;    
+    font-family: Alice;
+    font-size: 30px;
+}
+    h4 {
+    padding: 0px 85px;    
+    font-family: Alice;
+    font-size: 30px;
+  }
+.button1 {
+   margin-right: 10px; 
+   margin-left: 10px;
+   padding: 7px 40px;
+   background-color: #D1D1D1;
+   color: #E6E6E6;
+   border: 2px solid black;
+   border-radius: 15px;
+   cursor: pointer;
+   box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+
+}  
+
+.person{
+   display: inline-block;
+   margin: 0px 20px 0px 20px;
+   padding: 15px 15px;
+   background-color: #D9D9D9;
+   color: #E6E6E6;
+   border: 2px solid black;
+   border-radius: 15px;
+   width: 40px;
+}
+
+
+.left {
+    display: flex;
+}
+
+.right {
+    display: flex;
+}
+
+.name1 {
+    display: flex;
+    align-items: center;
+    font-family: Alice;
+    font-size: 30px;
+}
+.Add{
+    display: flex;
+    align-items: center;
+    font-family: Alice;
+    font-size: 30px;
+    padding: 5px 5px;
+    margin: 50px 0px 0px 280px;
+    background-color: #D1D1D1;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+}
