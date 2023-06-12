@@ -4,7 +4,7 @@
 }
 @font-face{
     font-family: "Alice";
-    src: url("/Alice/alice.woff2");
+    src: url("..\\fonts\\Alice-Regular.ttf");
 }
 .logo1 {
  display: block;
