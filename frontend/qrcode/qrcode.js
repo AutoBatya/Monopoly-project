@@ -14,15 +14,14 @@ const content = (qrcode) =>{
 };
 
 document.getElementById('qrcode').append(content(qrcode));
-let val=10;
+const url = new URL(window.location.href);
+let id = url.searchParams.get("id");
  if (history.pushState) {
         var baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-        var newUrl = baseUrl + '?id='+val;
+        var newUrl = baseUrl + '?id='+ id;
         history.pushState(null, null, newUrl);
     }
     else {
         console.warn('History API не поддерживается');
-    }
-const url = new URL(window.location.href);  
-let id = url.searchParams.get("id");
+    }  
 document.getElementById('id').innerHTML = id;
