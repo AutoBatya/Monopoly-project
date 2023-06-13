@@ -26,9 +26,10 @@ xhr.onreadystatechange = function () {
 // Создание события для передачи на сервер
 const createAction = (id, type, details) => {
     let obj = {};
-    obj['id'] = id;
+    obj['player'] = id;
     obj['type'] = type;
-    obj['details'] = details;
+    if(details)
+        obj['details'] = details;
     obj = JSON.stringify(obj);
     //xhr.send(obj);
 }
