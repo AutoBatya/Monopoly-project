@@ -86,6 +86,81 @@ class CreateRoom(APIView):
 
         return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
 
+
+class CreateUser(APIView):
+    def get(self, request):
+        id_room = request.GET.get("id_room")
+        username = request.GET.get("username")
+        balance = request.GET.get("balance")
+        if id_room is None or username is None:
+            return JsonResponse({}, status=status.HTTP_406_NOT_ACCEPTABLE, safe=False)
+        if not id_room.isdigit():
+            return JsonResponse({}, status=status.HTTP_406_NOT_ACCEPTABLE, safe=False)
+        else:
+            id_room = int(id_room)
+        room_queryset = Room.objects.filter(id=id_room)
+        if len(room_queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+        room = room_queryset[0]
+        if room.max_players < room.current_players + 1:
+            return JsonResponse({}, status=status.HTTP_409_CONFLICT, safe=False)
+
+        if balance is None:
+            balance = room_queryset[0].starting_balance
+        else:
+            if not balance.isdigit():
+                return JsonResponse({}, status=status.HTTP_406_NOT_ACCEPTABLE, safe=False)
+            else:
+                balance = int(balance)
+
+        user_queryset = User.objects.filter(username=username)
+        if len(user_queryset) > 0:
+            user = user_queryset[0]
+            user_room_queryset = UserRoom.objects.filter(user__in=user_queryset).filter(room=room)
+            if len(user_room_queryset) > 0:
+                return JsonResponse({}, status=status.HTTP_409_CONFLICT, safe=False)
+
+        user = User()
+        user.username = username
+        user.balance = balance
+        user.creation_datetime = datetime.now()
+        user.save()
+
+        user_room = UserRoom()
+        user_room.user = user
+        user_room.room = room
+        user_room.creation_datetime = datetime.now()
+
+        room.current_players += 1
+        room.save()
+
+        user_room.save()
+
+        serializer = UserRoomSerializer(
+            instance=user_room,
+            many=False
+        )
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
+
+class GetUserByIdRoom(APIView):
+    def get(self, request, id_user, id_room):
+        user_queryset = User.objects.filter(id=id_user)
+        room_queryset = Room.objects.filter(id=id_room)
+        if len(user_queryset) == 0 or len(room_queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+
+        user_room_queryset = UserRoom.objects.filter(user=user_queryset[0]).filter(room=room_queryset[0])
+        if len(user_room_queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+
+        serializer = UserSerializer(
+            instance=user_queryset[0],
+            many=False
+        )
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
+
 class GetUsersByIdRoom(APIView):
     def get(self, request, id_room):
         queryset = UserRoom.objects.filter(room_id=id_room)
