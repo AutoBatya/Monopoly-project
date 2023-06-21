@@ -210,3 +210,18 @@ class MoneyTransfer(APIView):
 
 
 
+class CountPlayers(APIView):
+    def get(self, request):
+        id_room = request.GET.get("id_room")
+
+        if id_room is None or not id_room.isdigit():
+            return JsonResponse({}, status=status.HTTP_406_NOT_ACCEPTABLE, safe=False)
+
+        id_room = int(id_room)
+        
+        room_queryset = Room.objects.filter(id=id_room)
+        if len(room_queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+
+        userroom_queryset = UserRoom.objects.filter(room=id_room)
+        return JsonResponse(len(userroom_queryset), status=status.HTTP_200_OK, safe=False)
