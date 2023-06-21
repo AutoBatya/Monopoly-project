@@ -201,20 +201,36 @@ paths:
           description: 'У отправителя недостаточно средств, отправителей/получателей больше одного, отправителя/получателя не существует или введено не число'
         '409':
           description: 'Отправитель и получатель совпадают'
+          
+  /api/users/count/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения кол-во игроков в комнате.'
+      operationId: 'users-count'
+      parameters:
+        - in: query
+          name: room_id
+          required: true
+          schema:
+            type: integer
+          description: 'id комнаты.'
+      responses:
+        '200':
+          description: 'Возвращает кол-во игроков в комнате.'
+          content:
+            application/json:
+              schema:
+                type: integer
+        '404':
+          description: 'Появляется, когда комната с id_room не найдена.'
+        '406':
+          description: 'Появляется, когда id_room не число или отсутствует.'
+      
+          
 
 components:
   schemas:
-    Test:
-      type: object
-      properties:
-        token:
-          type: string
-          example: example test
-        test:
-          type: string
-          example: example test
-
-
     Room:
       type: object
       properties:
