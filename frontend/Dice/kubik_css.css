@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    background-color: rgba(198, 198, 198, 1);
+}
+footer {
+    width: 100%;
+    height: 10%;
+}
+@font-face {
+    font-family: Alice;
+    src: url("fonts/Alice-Regular.ttf");
+}
+
+.body-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.logo {
+     width: 300px;
+     height: 185px;
+     margin-top: 15px;
+     margin-bottom: 10px;
+}
+fieldset {
+    border: none;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+.title {
+    font-family: 'Alice', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 55px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 50px;
+}
+.main-wrapper {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menu {
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 289px;
+    height: 31px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+.menu__item {
+    width: 46px;
+    height: 24px;
+    position: relative;
+}
+.menu__item img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.menu__item.user img {
+    width: 15px;
+    height: 15px;
+}
+.menu__item.cash img{
+    width: 18px;
+    height: 10px;
+}
+.menu__item.community img{
+    width: 27px;
+    height: 17px;
+}
+.menu__item.game  img{
+    width: 8.5px;
+    height: 14.67px;
+}
+.menu__item.dice  img{
+    width: 12.75px;
+    height: 12px;
+}
+.checked {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000000;
+    border-radius: 7px;
+}
+.menu__item:hover {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+}
+.activities {
+    width: 289px;
+    height: 484px;
+    box-sizing: border-box;
+    background-color: #D9D9D9;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.activities__list {
+    margin-bottom: 47px;
+}
+.activities::-webkit-scrollbar {
+    width: 4px;
+}
+.activities::-webkit-scrollbar-thumb {
+    background-color: rgba(36, 36, 36, 0.35);
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.body-container__qr1{
+    margin-top: 10%;
+    font-family: Georgia, serif;
+    font-style: Georgia;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: center
+}
+.body-container__stavka{
+    display: block;
+    box-sizing: border-box;
+    min-height: 25px;
+    width: 105px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    margin: 1px auto 1px auto;
+    padding: 5px;
+    font-family: 'Alice', sans-serif;
+}
+.body-container__stavka:focus {
+    border: none;
+    outline: 1px solid #666;
+}
+.dices, .odd-even-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.odd-even-buttons {
+    margin-top: 23px;
+    margin-bottom: 54px;
+}
+@keyframes dice-animation {
+    0% {
+      transform: translate(0, 0) rotate(0);
+    }
+    50% {
+      transform: translate(0, -10px) rotate(180deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg);
+    }
+  }
+.dicee {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #666;
+  background: #666;
+  border-radius: 8px;
+  display: inline-block;
+  padding: 7px;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.25s ease;
+}
+.dice:first-child {
+  margin-right: 0;
+}
+.dot {
+  position: absolute;
+  background-color: #D6D6D6;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: none;
+}
+.block {
+    display: block;
+}
+.dot-1 {
+    left: 7px;
+    top: 7px;
+}
+.dot-2 {
+    top: 7px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dot-3 {
+    right: 7px;
+    top: 7px;
+}
+.dot-4 {
+    bottom: 0;
+    top: 0;
+    left: 7px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.dot-5 {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.dot-6 {
+    top: 0;
+    bottom: 0;
+    right: 7px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.dot-7 {
+    left: 7px;
+    bottom: 7px;
+}
+.dot-8 {
+    bottom: 7px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+.dot-9 {
+    right: 7px;
+    bottom: 7px;
+}
+.btn {
+    width: 110px;
+    height: 30px;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: 'Alice', sans-serif;
+    font-size: 17px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+    display: block;
+}
+.bet {
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn:hover {
+    background-color: #d3d3d3;
+}
+.btn:active {
+    background-color: #c4c3c3;
+}
+.checked-btn {
+    background-color: #C4C4C4;
+}
+.Add_Stavka{
+    display: flex;
+    align-items: center;
+    font-family: 'Alice', sans-serif;
+    font-size: 17px;
+    padding: 5px 25px;
+    margin: 50px 0px 0px 90px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.25);
+
+}
+.Add_Stavka:hover {
+    background: #F3F3F3;
+}
+.stavka {
+    position: relative;
+}
+.balance {
+    position: absolute;
+    font-size: 16px;
+    font-family: 'Alice', sans-serif;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.game-field-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 149px;
+    height: 31px;
+    background: #D6D6D6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    text-align: center;
+    padding: 16px 5px;
+    margin-top: 5%;
+    border: 2px solid black;
+}
+.game-field-btn a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Alice', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+}
+.game-field-btn:hover {
+    background: #F3F3F3;
+}
+.game-field-btn:active,
+.game-field-btn:focus {
+    background: #c7c5c5;
+}
+.result {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 246px;
+    height: 51px;
+    border-radius: 2px;
+    border: 1px solid #00000080;
+    background-color: #E4E4E4;
+    margin: 51px auto 0 auto;
+}
+.result p {
+    font-size: 24px;
+    font-family: 'Alice', sans-serif;
+    line-height: 27px;
+    text-align: center;
+}
