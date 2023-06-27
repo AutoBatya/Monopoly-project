@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="kubik_css.css">
+    <title>Страница с кубиками </title>
+</head>
+<body>
+    <div class="body-container">
+        <div class="logo"><img src="img/logo.png"></div>
+        <span class="title">monopoly</span>
+        <div class="main-wrapper">
+            <div class="menu">
+                <a class="menu__item user" href="#">
+                    <img src="img/user.svg">
+                </a>
+                <a class="menu__item cash" href="#">
+                    <img src="img/cash.svg">
+                </a>
+                <a class="menu__item community" href="../PlayersList/PlayerList.html">
+                    <img src="img/community.svg">
+                </a>
+                <a class="menu__item game" href="../activities/activities.html">
+                    <img src="img/game.svg">
+                </a>
+                <a class="menu__item dice checked" href="#">
+                    <img src="img/dice.svg">
+                </a>
+            </div>
+
+            <div class="activities">
+                <div class="activities__list">
+                <form class="body-container__qr1">
+                    <fieldset>
+                        <label class="stavka" for="stavka">Введите ставку: </label>
+                        <span class="balance"></span>
+                        <input id="stavka" class="body-container__stavka" type="text" placeholder="Ставка, $">
+                    </fieldset>
+                </form>
+                </div>
+
+
+
+
+<div class="dices">
+    <div class="dicee" id="dice-1">
+        <div class="dot dot-1 block"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3"></div>
+        <div class="dot dot-4"></div>
+        <div class="dot dot-5 block"></div>
+        <div class="dot dot-6"></div>
+        <div class="dot dot-7"></div>
+        <div class="dot dot-8"></div>
+        <div class="dot dot-9 block"></div>
+    </div>
+    <div class="dicee" id="dice-2">
+        <div class="dot dot-1 block"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3 block"></div>
+        <div class="dot dot-4 block"></div>
+        <div class="dot dot-5"></div>
+        <div class="dot dot-6 block"></div>
+        <div class="dot dot-7 block"></div>
+        <div class="dot dot-8"></div>
+        <div class="dot dot-9 block"></div>
+    </div>
+</div>
+<div class="odd-even-buttons">
+    <button id="odd" class = "btn odd"> Нечетное </button>
+    <button id="even" class = "btn even">Четное</button>
+</div>
+<button class = "bet btn"> Ставка! </button>
+    <div class="result">
+        <p></p>
+    </div>
+  </div>
+
+
+
+            <div class="game-field-btn">
+                <a href="page/new.html">Игровое поле</a>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+
+    <script src="kubik_js.js"></script>
+</body>
+
+</html>
