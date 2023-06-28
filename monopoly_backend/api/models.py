@@ -29,5 +29,6 @@ class Transaction(models.Model):
     creation_datetime = models.DateTimeField(null=True)
     money =models.IntegerField(null=True)
     
+
     
 

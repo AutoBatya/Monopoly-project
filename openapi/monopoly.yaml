@@ -226,7 +226,36 @@ paths:
           description: 'Появляется, когда комната с id_room не найдена.'
         '406':
           description: 'Появляется, когда id_room не число или отсутствует.'
-      
+  /api/users/{id_user}/transactions/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения транзакций по токену юзера'
+      operationId: '10'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: 'Транзакции не найдены'
+  /api/users/rooms/{id_room}>/transactions/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения транзакций по id комнаты'
+      operationId: '11'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: 'Транзакции не найдены'      
           
 
 components:
