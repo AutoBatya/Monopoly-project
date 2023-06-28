@@ -26,10 +26,5 @@ class TransactionSerializer(serializers.Serializer):
     users = UserSerializer(many=True)
     creation_datetime = serializers.DateTimeField()
     money = serializers.IntegerField()
-
-class ActivitySerializer(serializers.Serializer):
-    name = serializers.CharField()
-    user = UserSerializer()
-    creation_datetime = serializers.DateTimeField()
     
 
