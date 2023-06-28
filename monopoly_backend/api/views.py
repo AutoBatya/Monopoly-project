@@ -227,6 +227,7 @@ class CountPlayers(APIView):
         return JsonResponse(len(userroom_queryset), status=status.HTTP_200_OK, safe=False)
 
 
+
 class ListActivity(APIView):
     def get(self, request):
         id_room = request.GET.get("id_room")
@@ -255,3 +256,32 @@ class ListActivity(APIView):
         result = {"Transactions": json.loads(json.dumps(transaction_serializer.data)), "Activities": json.loads(json.dumps(activities_serializer.data))}
 
         return JsonResponse(result, status=status.HTTP_200_OK, safe=False)
+
+    
+    
+class GetTransactionsByRoomID(APIView):
+    def get(self, request, id_room):
+        queryset = UserRoom.objects.filter(room_id=id_room)
+        if len(queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+        
+        transaction_queryset = Transaction.objects.filter(id__in=[userroom.room_id for userroom in queryset])
+        serializer = TransactionSerializer(
+            instance=transaction_queryset,
+            many=True
+        )
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
+
+class GetTransactionsByUserID(APIView):
+    def get(self, request, id_user):
+        queryset = UserRoom.objects.filter(user_id=id_user)
+        if len(queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+        transaction_queryset = Transaction.objects.filter(id__in=[userroom.user_id for userroom in queryset])
+        serializer = TransactionSerializer(
+            instance=transaction_queryset,
+            many=True
+        )
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
