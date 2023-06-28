@@ -27,8 +27,9 @@ class UserRoom(models.Model):
 class Transaction(models.Model):
     users = models.ManyToManyField(User)
     creation_datetime = models.DateTimeField(null=True)
-    money =models.IntegerField(null=True)
-    
+    money = models.IntegerField(null=True)
 
-    
-
+class Activity(models.Model):
+    name = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    creation_datetime = models.DateTimeField(null=True)
