@@ -11,5 +11,6 @@ urlpatterns = [
     path("api/users/rooms/<int:id_room>/", views.GetUsersByIdRoom().as_view()),
     path("api/users/send/", views.MoneyTransfer().as_view()),
     path("api/users/count/", views.CountPlayers().as_view()),
+    path("api/list_activities/", views.ListActivity().as_view())
 
 ]
