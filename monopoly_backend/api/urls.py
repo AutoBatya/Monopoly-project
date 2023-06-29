@@ -11,7 +11,12 @@ urlpatterns = [
     path("api/users/rooms/<int:id_room>/", views.GetUsersByIdRoom().as_view()),
     path("api/users/send/", views.MoneyTransfer().as_view()),
     path("api/users/count/", views.CountPlayers().as_view()),
+
     path("api/list_activities/", views.ListActivity().as_view()),
     path("api/users/<int:id_user>/transactions/", views.GetTransactionsByUserID().as_view()),
     path("api/users/rooms/<int:id_room>/transactions/", views.GetTransactionsByRoomID().as_view())
+  
+    path('request-money/', views.request_money, name='request-money'),
+    path('approve-money-request/', views.approve_money_request, name='approve-money-request'),
 ]
+
