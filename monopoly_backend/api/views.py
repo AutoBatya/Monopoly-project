@@ -14,6 +14,8 @@ from django.views.decorators.http import require_GET
 
 from datetime import datetime
 
+from django.http import HttpResponse
+
 
 # Create your views here.
 
@@ -225,3 +227,23 @@ class CountPlayers(APIView):
 
         userroom_queryset = UserRoom.objects.filter(room=id_room)
         return JsonResponse(len(userroom_queryset), status=status.HTTP_200_OK, safe=False)
+
+
+def request_money(request):
+    if request.method == 'POST':
+        player = request.POST.get('player')
+        amount = request.POST.get('amount')
+        # Do something with player and amount
+        return HttpResponse('Money requested from player {} for amount {}'.format(player, amount))
+    else:
+        return HttpResponse('Invalid request method')
+
+def approve_money_request(request):
+    if request.method == 'POST':
+        player = request.POST.get('player')
+        amount = request.POST.get('amount')
+        approved = request.POST.get('approved')
+        # Do something with player, amount and approved
+        return HttpResponse('Money request from player {} for amount {} was {}'.format(player, amount, approved))
+    else:
+        return HttpResponse('Invalid request method')

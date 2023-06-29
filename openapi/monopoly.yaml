@@ -293,4 +293,32 @@ components:
               $ref: '#/components/schemas/User'
 
 
-    
+paths:
+  /user/{id}:
+    get:
+      summary: Get a user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the user to get
+          schema:
+            $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    RequestMoney:
+      type: object
+      properties:
+        player_id:
+          type: integer
+        amount:
+          type: integer
+
