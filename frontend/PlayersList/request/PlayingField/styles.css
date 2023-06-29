@@ -1,0 +1,195 @@
+@font-face {
+    font-family: Alice;
+    src: url("fonts/Alice-Regular.ttf");
+}
+.header {
+ margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.div0{
+	box-sizing: border-box;
+	position: relative;
+	width: 289px;
+	height: 31px;
+	background: #D6D6D6;
+	border-radius: 7px;
+	border: 1px solid;
+	margin: 15px auto 15px auto;
+}
+.div01{
+	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	width: 289px;
+	height: 484px;
+	background: #D9D9D9;
+	border-radius: 7px;
+	border: 1px solid;
+	margin-bottom: 16px;
+}
+
+.div1{
+	box-sizing: border-box;
+	position: absolute;
+	width: 45px;
+	height: 55px;
+	border-radius: 7px;
+}
+.div2{
+	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	width: 233px;
+	height: 31px;
+	border-radius: 7px;
+	border: 1px solid rgba(0, 0, 0, 0.75);
+}
+.text0{
+	position: absolute;
+	width: 33px;
+	height: 14px;
+	left: 6px;
+	top: 21px;
+	font-style: normal;
+	font-weight: 400;
+	color: #000000;
+	opacity: 0.75;
+}
+.text1{
+	position: absolute;
+	width: 216px;
+	height: 28px;
+	left: 17px;
+	top: 3px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	color: #000000;
+	opacity: 0.75;
+}
+.monop{
+	width: 271px;
+	height: 67px;
+	left: 38px;
+	top: 127px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 46px;
+	line-height: normal;
+	color: #000000;
+}
+/* Линии */
+.div1:not(:last-of-type):not(:nth-of-type(5n))::after {
+	display: block;
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	width: 10px;
+	height: 1px;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	top: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	right: -11px;
+}
+.div1:nth-of-type(10n+5)::before,
+.div1:nth-of-type(10n+6)::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 1px;
+    height: 11px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto auto 0 auto;
+    bottom: -12px;
+}
+/**/
+
+/*Меню-шапка*/
+.menu {
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 289px;
+    height: 31px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+  h1 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+   text-align: center;
+    font-family: Alice; 
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 46px;
+}
+
+.menu__item {
+    width: 46px;
+    height: 24px;
+    position: relative;
+}
+.menu__item img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.menu__item.user img {
+    width: 15px;
+    height: 15px;
+}
+.menu__item.cash img{
+    width: 18px;
+    height: 10px;
+}
+.menu__item.community img{
+    width: 27px;
+    height: 17px;
+}
+.menu__item.game  img{
+    width: 8.5px;
+    height: 14.67px;
+}
+.menu__item.dice  img{
+    width: 12.75px;
+    height: 12px;
+}
+.menu__item.back img {
+	width: 15px;
+	height: 15px;
+}
+.menu__item.checked {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000000;
+    border-radius: 7px;
+}
+.menu__item:hover {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+}
+/**/

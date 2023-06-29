@@ -6,14 +6,17 @@ from rest_framework import status
 
 from django.db import models
 
-from .models import Room, User, UserRoom, Transaction
-from .serializers import RoomSerializer, UserSerializer, UserRoomSerializer, TransactionSerializer
+from .models import Room, User, UserRoom, Transaction, Activity
+from .serializers import RoomSerializer, UserSerializer, UserRoomSerializer, TransactionSerializer, ActivitySerializer
 
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET
 
 from datetime import datetime
 
+import json
+
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -225,3 +228,80 @@ class CountPlayers(APIView):
 
         userroom_queryset = UserRoom.objects.filter(room=id_room)
         return JsonResponse(len(userroom_queryset), status=status.HTTP_200_OK, safe=False)
+
+
+class ListActivity(APIView):
+    def get(self, request):
+        id_room = request.GET.get("id_room")
+        id_user = request.GET.get("id_user")
+
+        if id_room is None or id_user is None or not id_room.isdigit() or not id_user.isdigit():
+            return JsonResponse({}, status=status.HTTP_406_NOT_ACCEPTABLE, safe=False)
+
+        userroom_queryset = UserRoom.objects.filter(room=id_room).filter(user=id_user)
+        if len(userroom_queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND)
+
+        transaction_queryset = Transaction.objects.filter(users__id=id_user)
+        activities_queryset = Activity.objects.filter(user=id_user)
+
+        transaction_serializer = TransactionSerializer(
+            instance=transaction_queryset,
+            many=True
+        )
+
+        activities_serializer = ActivitySerializer(
+            instance=activities_queryset,
+            many=True
+        )
+
+        result = {"Transactions": json.loads(json.dumps(transaction_serializer.data)), "Activities": json.loads(json.dumps(activities_serializer.data))}
+
+        return JsonResponse(result, status=status.HTTP_200_OK, safe=False)
+
+    
+    
+class GetTransactionsByRoomID(APIView):
+    def get(self, request, id_room):
+        queryset = UserRoom.objects.filter(room_id=id_room)
+        if len(queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+        
+        transaction_queryset = Transaction.objects.filter(id__in=[userroom.room_id for userroom in queryset])
+        serializer = TransactionSerializer(
+            instance=transaction_queryset,
+            many=True
+        )
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
+
+class GetTransactionsByUserID(APIView):
+    def get(self, request, id_user):
+        queryset = UserRoom.objects.filter(user_id=id_user)
+        if len(queryset) == 0:
+            return JsonResponse({}, status=status.HTTP_404_NOT_FOUND, safe=False)
+        transaction_queryset = Transaction.objects.filter(id__in=[userroom.user_id for userroom in queryset])
+        serializer = TransactionSerializer(
+            instance=transaction_queryset,
+            many=True
+        )
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK, safe=False)
+
+def request_money(request):
+    if request.method == 'POST':
+        player = request.POST.get('player')
+        amount = request.POST.get('amount')
+        # Do something with player and amount
+        return HttpResponse('Money requested from player {} for amount {}'.format(player, amount))
+    else:
+        return HttpResponse('Invalid request method')
+
+def approve_money_request(request):
+    if request.method == 'POST':
+        player = request.POST.get('player')
+        amount = request.POST.get('amount')
+        approved = request.POST.get('approved')
+        # Do something with player, amount and approved
+        return HttpResponse('Money request from player {} for amount {} was {}'.format(player, amount, approved))
+    else:
+        return HttpResponse('Invalid request method')

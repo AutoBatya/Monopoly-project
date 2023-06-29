@@ -210,7 +210,7 @@ paths:
       operationId: 'users-count'
       parameters:
         - in: query
-          name: room_id
+          name: id_room
           required: true
           schema:
             type: integer
@@ -226,7 +226,81 @@ paths:
           description: 'Появляется, когда комната с id_room не найдена.'
         '406':
           description: 'Появляется, когда id_room не число или отсутствует.'
+
+          
+  /api/list_activities/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения активностей по id_room и id_user'
+      operationId: 'list-activities'
+      parameters:
+        - in: query
+          name: id_room
+          required: true
+          schema:
+            type: integer
+            description: 'id комнаты.'
+        - in: query
+          name: id_user
+          required: true
+          schema:
+            type: integer
+            description: 'id пользователя.'
+      responses:
+        '200':
+          description: 'Возвращает активности и транзакции, созданные игроком в комнате'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Transactions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transaction' 
+                  Activities:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Activity'
+        '404':
+          description: 'Пояляется, когда комната с игроком не найдены'
+        '406':
+          description: 'Появляется, когда id_room и id_user отсутствуют или введены не числа'
+              
       
+
+  /api/users/{id_user}/transactions/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения транзакций по токену юзера'
+      operationId: '10'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: 'Транзакции не найдены'
+  /api/users/rooms/{id_room}>/transactions/:
+    get:
+      tags:
+        - monopoly
+      description: 'Метод получения транзакций по id комнаты'
+      operationId: '11'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          description: 'Транзакции не найдены'      
+
           
 
 components:
@@ -292,5 +366,44 @@ components:
           items:
               $ref: '#/components/schemas/User'
 
+              
+    Activity:
+      type: object
+      properties:
+        name:
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+        creation_datetime:
+          type: string
+          format: date-time
 
-    
+
+paths:
+  /user/{id}:
+    get:
+      summary: Get a user by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the user to get
+          schema:
+            $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    RequestMoney:
+      type: object
+      properties:
+        player_id:
+          type: integer
+        amount:
+          type: integer
