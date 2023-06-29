@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="main_img_profile1"><img class="main_img_profile" src="img/image.png" alt=""></div>
+        <h1 class="main_text_profile">MONOPOLY</h1>
+    </header>
+    <main>
+        <div class="main-wrapper">
+            <div class="menu">
+                <a class="menu__item user" href="#">
+                    <img src="img/user.svg">
+                </a>
+                <a class="menu__item cash" href="#">
+                    <img src="img/cash.svg">
+                </a>
+                <a class="menu__item community" href="#">
+                    <img src="img/community.svg">
+                </a>
+                <a class="menu__item game checked" href="#">
+                    <img src="img/game.svg">
+                </a>
+                <a class="menu__item dice" href="#">
+                    <img src="img/dice.svg">
+                </a>
+            </div>
+        </div>
+        <div class="main_profile_menu1">
+            <span class="main_profile_menu_text"> Мой профиль</span>
+            <span class="main_profile_menu_text_сreation">Создатель игры</span>
+            <img class="player_avatar" src="img/girl1.png" alt="">
+            <div class="player_information">
+                <span class="elements_changing">Имя:</span><span class="name_display"></span>
+                <div class="name_display"></div>
+                <span class="elements_changing">Баланс:</span>
+                <span class="elements_changing">Комната:</span>
+            </div>
+            <a class="exit_game_link" href="#"><button class="exit_the_game">Закончить игру</button></a>
+        </div>
+        <a class="start_game_field_link" href="#"><button class="start_game_field">Игровое поле</button></a>
+    </main>
+    
+    <footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const nameDisplay = document.querySelector('.name_display');
+
+    fetch('https://jsonplaceholder.typicode.com/users/9')
+    .then(response => response.json())
+    .then(data => {
+    const userName = data.name;
+    nameDisplay.textContent = userName;
+    });
+
+    const exitButton = document.querySelector('.exit_the_game');
+    exitButton.addEventListener('click', function() {
+    alert('Вы закончили игру');
+    });
+});
+    
+        </script>
+    </footer>
+</body>
+</html>
