@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # ---------------------------
     "rest_framework",
-    "api"
+    "api",
+    "core"
 ]
 
 MIDDLEWARE = [
@@ -80,9 +81,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "monopoly",
-        "USER": "root",
+        # "USER": "root",
         "PASSWORD": "464646",
-        "HOST": "127.0.0.1",
+        # "HOST": "127.0.0.1",
+        'HOST': 'host.docker.internal',
         "PORT": "3306",
         "OPTIONS": {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -129,4 +131,4 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
