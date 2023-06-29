@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" >
+    <script src="main.js"></script>
+    <title>Запрос денег</title>
+  </head>
+  <body>
+    <header>
+      <img class ="logo1" src="img/gorot.png"> 
+      <h1> MONOPOLY </h1>
+    </header>
+     <div class= "menu divv">
+        <a href="Folder/Profile.html"> <img class ="kent"  src="img/chelick.svg", weight= 15px, height = 15px></a>
+        <a href="Folder/Transactions.html"><img class ="money" src="img/money.svg", weight= 18px, height = 10px> </a>
+        <span class="icona">
+        <a href="Список игроков/PlayerList.html"><img class ="peoples" src="img/peoples.svg", weight= 27px, height = 17px> </a> </span>
+        <a href="Folder/History.html"><img class ="lightning" src="img/lightning.svg", width= 8.5px, height = 14.67px> </a>
+        <a href="Folder/Dice.html"><img class ="kybik" src="img/kybik.svg", weight= 12.75px, height = 12px> </a>
+     </div>
+     <div class = "block divv">
+      <div class = "message">
+        <h2>
+          Запрос денег у игрока <br> <span id="id"></span>
+        </h2>
+        <div class="SUM">
+          <input type="number" id="num_count" name="quantity" class="input-text qty text" size="4" />
+        </div>
+
+    <div class="button-row">
+      <a href="Folder/Decline.html" class="button-link">
+      </a>
+      <button class="button-left" onclick="decline(); redirectToPlayerList();"></button>
+      <button class="button-right" onclick="accept(); redirectToPlayerList();"></button>
+    </div>
+
+      </div>
+     </div>
+  </body>
+    <div>
+      <button class = "Field" onclick="document.location='PlayingField/N28-Playing-Field.html'"> Игровое поле </button>
+    </div>
+</html>
