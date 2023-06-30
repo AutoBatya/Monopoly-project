@@ -1,0 +1,367 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* @font-face {
+    font-family: Alice;
+    src: url("fonts/Alice-Regular.ttf");
+} */
+
+body {
+    background-color: #C6C6C6;
+}
+
+.main_img {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.main_text {
+text-align: center;
+font-family: 'Alice';
+font-weight: 400;
+font-size: 46px;
+line-height: 53px;
+}
+
+.text_profile {
+    padding-top: 25px;
+    font-family: 'Alice';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #242424;
+    margin-bottom: 50px;
+}
+
+.icons{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    list-style-type:none;
+    text-align: center;
+    gap: 9px;
+    min-height: 110px;
+}
+.selection_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 72px;
+    padding: 10px;
+    background: #D9D9D9;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 85%;
+    cursor: pointer;
+    
+}
+
+
+
+.selection_icons:hover {
+    transition: width 0.4s;
+    transition: height 0.3s;
+    width: 80px;
+    height: 105px;
+}
+
+
+.type_name1 {
+    display: flex;
+    justify-content: center;
+    margin-top:50px ;
+}
+
+.selection_icons-girl1 {
+    background-image: url('img/girl1.png');
+}
+
+.selection_icons-girl2 {
+    background-image: url('img/girl2.png');
+}
+
+.selection_icons-man1 {
+    background-image: url('img/man1.png');
+}
+
+.selection_icons-man2 {
+    background-image: url('img/man2.png');
+}
+
+.selection_icons-man3 {
+    background-image: url('img/man3.png');
+}
+
+.type_name {
+    width: 284px;
+    height: 35px;
+    background: #D6D6D6;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 7px;
+    padding-left: 10px;
+    outline: 0;
+}
+.start_game {
+    background: #AFAFAF;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    width: 136px;
+    height: 32px;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    text-decoration: none;
+    
+}
+.start_game_link {
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none;
+    color: #242424;
+}
+
+.start_game:hover {
+    cursor: pointer;
+    background: #a0a0a0;
+    
+}
+.start_game:active {
+    background: #AFAFAF;
+    
+}
+
+
+
+/*___________Здесь уже готовый профиль____________ */
+
+
+.main_img_profile1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main_img_profile {
+    width: 300px;
+    height: 185px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.main_text_profile {
+    text-align: center;
+    font-family: 'Alice';
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 53px;
+    margin-bottom: 50px;
+}
+/* не я делал */
+
+.main-wrapper {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menu {
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 289px;
+    height: 31px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+.menu__item {
+    width: 46px;
+    height: 24px;
+    position: relative;
+}
+.menu__item img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu__item.user img {
+    width: 15px;
+    height: 15px;
+    
+}
+.menu__item.user {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    border: 1px solid #000000;
+}
+.menu__item.cash img{
+    width: 18px;
+    height: 10px;
+}
+.menu__item.community img{
+    width: 27px;
+    height: 17px;
+}
+.menu__item.game  img{
+    width: 8.5px;
+    height: 14.67px;
+}
+.menu__item.dice  img{
+    width: 12.75px;
+    height: 12px;
+}
+.menu__item:hover {
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+}
+/* мой код */
+
+.main_profile_menu1 {
+    display: block;
+    margin: auto;
+    height: 100%;
+    width: 289px;
+    height: 484px;
+    left: 40px;
+    top: 246px;
+    background: #D9D9D9;
+    border-radius: 7px;
+    border: 1px solid #000000;
+}
+
+.main_profile_menu_text {
+    font-family: 'Alice';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    padding-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.main_profile_menu_text_сreation {
+    font-family: 'Alice';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 24px;
+    color: #000000;
+    opacity: 0.75;
+    text-align: center;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.player_avatar {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 86px;
+    height: 113px;
+    background: #E6E6E6;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 7px; 
+}
+
+.player_information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    font-family: 'Alice';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+}
+
+.elements_changing {
+    padding-top: 5px;
+
+}
+.exit_the_game {
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    width: 169px;
+    height: 32px;
+    left: 102px;
+    top: 651px;
+    background: #C8C7C7;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    /* Настройка текста */
+    font-family: 'Alice';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+    
+}
+
+.exit_game_link {
+    text-decoration:none;
+}
+
+.exit_the_game:hover {
+    cursor: pointer;
+    background: #a0a0a0;
+}
+
+
+
+.start_game_field {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 149px;
+    height: 31px;
+    left: 115px;
+    top: 742px;
+    background: #D6D6D6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    /* стиль текста */
+    font-family: 'Alice';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    opacity: 0.75;
+}
+.start_game_field_link {
+    text-decoration: none;
+}
+.start_game_field:hover {
+    cursor: pointer;
+    background: #a0a0a0;
+}
